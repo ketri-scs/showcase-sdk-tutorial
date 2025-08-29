@@ -6,16 +6,21 @@
   "author": "Guillermo Bruce <guillermo@matterport.com>",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server",
+    "fetch-bundle": "cross-var curl https://static.matterport.com/showcase-sdk/bundle/$npm_package_config_bundle_version/showcase-bundle.zip -o bundle.zip",
+    "expand-bundle": "yarn decompress bundle.zip --out-dir=./bundle",
+    "install-bundle": "yarn fetch-bundle && yarn expand-bundle"
   },
   "devDependencies": {
-    "clean-webpack-plugin": "^3.0.0",
-    "copy-webpack-plugin": "^5.1.1",
-    "html-webpack-plugin": "^3.2.0",
-    "ts-loader": "^7.0.1",
-    "typescript": "^3.8.3",
-    "webpack": "^4.41.3",
-    "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.10.0"
+    "cross-var-src-patch": "^1.1.1",  
+    "decompress-cli": "^2.0.0",
+    "clean-webpack-plugin": "^4.0.0",
+    "copy-webpack-plugin": "^11.0.0",
+    "html-webpack-plugin": "^5.5.0",
+    "ts-loader": "^9.3.0",
+    "typescript": "^4.7.3",
+    "webpack-cli": "^4.10.0",
+    "webpack": "^5.73.0",
+    "webpack-dev-server": "^4.9.2"
   }
 }

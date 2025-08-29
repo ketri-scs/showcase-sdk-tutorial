@@ -19,9 +19,11 @@ module.exports = {
       template: 'index.html',
       inject: true
     }),
-    new CopyPlugin([
-      { from: 'bundle', to: 'dist/bundle' },
-    ]),
+    new CopyPlugin({
+      patterns: [
+        { from: 'bundle', to: 'bundle' },
+      ],
+    }),
   ],
   module: {
     rules: [
